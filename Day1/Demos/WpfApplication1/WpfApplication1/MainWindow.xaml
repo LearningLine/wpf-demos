@@ -5,10 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow"
+        Height="350"
+        Width="525">
     <Grid>
-        <Button x:Name="button" Content="This is a Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="126" Margin="10,85,0,0" Height="44"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="419" Margin="10,37,0,0"/>
+        <Button x:Name="button"
+                Content="This is a Button"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="141"
+                Margin="10,85,0,0"
+                Height="89" />
+        <TextBox x:Name="textBox"
+                 HorizontalAlignment="Left"
+                 Height="23"
+                 TextWrapping="Wrap"
+                 Text="TextBox"
+                 VerticalAlignment="Top"
+                 Width="419"
+                 Margin="10,37,0,0" />
+        <RadioButton x:Name="radioButton"
+                     Content="RadioButton"
+                     HorizontalAlignment="Left"
+                     Margin="219,122,0,0"
+                     VerticalAlignment="Top"
+                     RenderTransformOrigin="0.512,2.264" />
 
     </Grid>
 </Window>
