@@ -1,0 +1,24 @@
+﻿<Window x:Class="XAMLDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:contorls="clr-namespace:WpfControlLibrary1;assembly=WpfControlLibrary1"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="350"
+        Width="525">
+    <StackPanel>
+        <Button x:Name="myButton"
+                Content="Hello World"
+                Click="ButtonBase_OnClick"
+                FontSize="24pt"
+                Height="73px">
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\Foovanadil\Dropbox\94cf9e3727a532818b7bb3fac23d2bf3.jpeg"
+							Stretch="Uniform"/>
+			</Button.Background>
+		</Button>
+        <contorls:UserControl1 ></contorls:UserControl1>
+    </StackPanel>
+</Window>
