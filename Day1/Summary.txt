@@ -1,0 +1,98 @@
+Day 1 Summary:
+
+Intro:
+
+Seperation between layout and code. 
+partial class (one half is XAML and one half is C#)
+
+Customize controls. Mostly makes 3rd party control vendors useless
+
+eXtensible Application Markup Language
+
+XAML is used in multiple places in the Windows ecosystem.
+Windows universal, Windows Phone, WPF, Silverlight, XBOX 360
+Windows Workflow
+
+Visual studio is a WPF app
+New features in 4.5 and 4.6 for WPF
+
+XAML:
+
+XML based
+Anything you do in XAML can be done in C#
+<Window> == var win = new Window();
+
+//Attribute syntax
+<Button Background="Green" /> //Implicit Type Converter makes "Green" into a SolidColorBrush with Green fill
+
+//Element Syntax
+<Button>
+  <Button.Background>
+    <SolidColorBrush Color="Green" />
+  <Button.Background>
+</Button>
+
+Namespaces
+xmlns:x=""  == x is the alias for this namespace
+xmlns="" this is the default
+
+XAML is compiled into BAML 
+And MainWindow.g.cs file is generated
+
+Still one root HWND 
+Can't remove the window chrome but you can hide it.
+
+Developer + Designer = Deseloper (Hybrid person that knows a little of both sides)
+AKA Devigner
+
+Layout:
+
+Vector vs Raster
+Vector == Scalable. Declarative, telling the runtime what you want 
+not how you want it
+Adobe Illustator - Can export XAML
+Exprssion Design = Vector base design tool generates native XAML
+
+Raster == Fixed size. Tell the runtime how you want something drawn
+Adobe Photoshop - Jpegs and PNG
+
+Panels:
+
+	StackPanel = One after another
+	DockPanel = Menu bar up top status on bottom
+	WrapPanel = flowing elements
+	Grid = Row and Column
+	UniformGrid == Tic Tac Toe board
+	Canvas == Absolute position
+
+
+Only one root element as a child of the Window
+From there you nest layout panels
+
+Rule for Grids:
+	4 rows and/or Columns. More than that next panels.
+
+2 Pass system
+	1. Measure
+	2. Arrange
+
+Transforms:
+
+2 Types: 
+	Render - Parent panel doesn't account for transformed size
+	Layout - Parent panel DOES account for transformed size
+
+Pre made transforms:
+
+	Scale
+	Rotate
+	Translate
+	Skew
+
+Full control 
+	Matrix
+
+Can combine transforms but:
+Multiple transforms must be in a <TransformGroup>
+
+
