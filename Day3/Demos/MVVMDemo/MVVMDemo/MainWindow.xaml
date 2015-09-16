@@ -1,0 +1,39 @@
+﻿<Window x:Class="MVVMDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMDemo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+	<Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <local:BooleanToBrushConverter x:Key="BooleanToBrushConverter" />
+	</Window.Resources>
+    <Grid>
+        <ItemsControl ItemsSource="{Binding Employees}">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+                    <StackPanel Orientation="Horizontal"
+                                x:Name="stackPanel">
+                        <!--Background="{Binding NotifyManagerOfTermination, Converter={StaticResource BooleanToBrushConverter}}"-->
+						<TextBlock Text="{Binding FirstName}"/>
+                        <TextBlock Text="{Binding LastName}" />
+                        <!--<TextBlock Text="{Binding NotifyManagerOfTermination}"
+								   FontSize="25"></TextBlock>-->
+						<Button Content="FIRE HIM"
+								Command="{Binding FireEmployeeCommand}"/>
+					</StackPanel>
+					<DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding NotifyManagerOfTermination}"
+									 Value="True">
+							<Setter Property="Background"
+									Value="Red"
+									TargetName="stackPanel"/>
+						</DataTrigger>
+					</DataTemplate.Triggers>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ItemsControl>
+    </Grid>
+</Window>
