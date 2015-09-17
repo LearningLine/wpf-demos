@@ -34,3 +34,14 @@ https://channel9.msdn.com/Blogs/Charles/Anders-Hejlsberg-Introducing-Async
 
 WPF Visual Tree Visualizer:
 http://snoopwpf.codeplex.com/
+
+
+Day 4:
+
+Touch Tech Podcast (.NET Rocks episode)
+http://www.dotnetrocks.com/default.aspx?showNum=469
+
+http://www.amazon.com/Designing-Gestural-Interfaces-Touchscreens-Interactive/dp/0596518390
+
+CI with SQL Server (.NET Rocks)
+http://www.dotnetrocks.com/default.aspx?showNum=1191
