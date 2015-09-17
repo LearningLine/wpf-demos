@@ -1,0 +1,83 @@
+DAY 3 SUMMARY
+
+Data Binding:
+
+Bunch of boiler plate is taken care for you. in the WinForms world you would have had to do hook textChanged and set the backing object. Then figure how to push to the UI.
+
+Source: POCO (Plain Ole' CLR Object)  
+Target: Must be Dependency Prop
+
+Mode: OneWay, OneTime, OneWayToSource, TwoWay
+Target decides the default binding mode (It's defined in the FrameworkPropertyMetadata for the DP)
+
+Implement INPC. One event on it called OnPropertyChanged.
+Raise the event in the POCO property setter.
+Only call if the value being set is different from the current value
+
+UpdateSourceTrigger: LostFocus, PropertyChanged, Explicit
+
+IsAsync tells the binding to run the getter on another thread then Dispatch the update back to the UI thread (there is a cost associated with all of this) 
+
+
+ElementName bindings will bind one UI element to another assuming that the name is in "scope" 
+
+StringFormat makes it simple to convert string values using C# format specifiers
+
+IValueConverter: Two methods Convert and ConvertBack (only used for two way binding) 
+
+Used to convert one datatype to another (Bool to Vis is the most common) 
+
+ItemsSource is the DP to bind your collection to the ItemsControl
+
+Default is to call ToString() on your objects when no other UI is supplied
+
+One option is to Override ToString()
+
+DisplayMemberPath lets you pick what property on your object to use in the list.
+
+ItemTemplate set that to an instance a DataTemplate.
+DataTemplate provides a snippet of XAML to use as the UI for your items in the ItemsControl
+
+The DataContext of a DataTemplate used in an ItemsControl is the item that on. 
+
+Implicit - Just set DataType (anytime you bind object to the UI it will use this template if it is in "scope") 
+
+Explicit - Has to have x:Key set
+
+INotifyCollectionChanged
+ObservableCollection implement INCC for you
+INPC doesn't understand adding or removing objects from a collection. It only knows when the collection instance changes.
+
+
+ICollectionView
+   Allows you to Sort, Filter and Group
+
+HeirarchialDataTemplate - used by TreeView for example. Allows repeating templates for parent child relationships. Order => OrderDetails
+
+
+MVVM:
+
+ Model - just data. POCO. No references to WPF or any UI related things. Usually populated from a data layer (DB, text file, web service etc..) 
+
+ View - XAML files (Window, DataTemplates, Styles, ControlTemplates) 
+
+
+Set DataContext = MyViewModel()
+use DataTriggers to respond to binding changes and provide UI feedback. 
+
+
+ ViewModel - Implements INPC. Glues the View and the model together through DataBinding. Make sure this class is still testable. Avoid UI specific properties or dependencies.
+
+Expose properties of type ICommand. Common pattern to allow Action<T> to be executed when Command is fired. e.g DelegateCommand
+
+MVVM is not useful in small applications. Lots of overhead
+MVVM is required in large applications.
+
+MVVM is guidelines no runtime support, not built in lib in CLR for it.
+
+Lots of 3rd party options. All with thier own flavor of MVVM
+
+
+
+
+
