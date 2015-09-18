@@ -1,7 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using ApprovalTests;
 using ApprovalTests.Reporters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using WpfAddressBook.Interfaces;
 using WpfAddressBook.ViewModels;
 
 namespace ViewModel.Tests
@@ -12,6 +15,7 @@ namespace ViewModel.Tests
 	{
 
 		private MainViewModel vm;
+		private Mock<IDatabase> _mockDatabase;
 
 		[ClassInitialize]
 		public static void ClassSetup(TestContext context)
@@ -22,7 +26,24 @@ namespace ViewModel.Tests
 		[TestInitialize]
 		public void TestSetup()
 		{
-			vm = new MainViewModel();
+			_mockDatabase = new Mock<IDatabase>();
+
+			vm = new MainViewModel(_mockDatabase.Object);
+		}
+
+		[TestMethod]
+		public void OnAddSaveToDatabaseIsCalledWithContactList()
+		{
+			IEnumerable<ContactViewModel> contacts = null;
+			_mockDatabase
+				.Setup(x => x.Save(It.IsAny<IEnumerable<ContactViewModel>>()))
+				.Callback<IEnumerable<ContactViewModel>>(c => contacts = c);
+
+			vm.AddCommand.Execute(null);
+
+			_mockDatabase.VerifyAll();
+			Assert.IsNotNull(contacts);
+			Assert.AreNotEqual(0,contacts.Count());
 		}
 
 		[TestMethod]

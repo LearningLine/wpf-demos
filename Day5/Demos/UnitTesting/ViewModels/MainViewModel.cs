@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Windows.Input;
 using JulMar.Windows.Mvvm;
+using WpfAddressBook.Interfaces;
 using WpfAddressBook.Model;
 
 namespace WpfAddressBook.ViewModels
@@ -23,8 +25,12 @@ namespace WpfAddressBook.ViewModels
         public ICommand AddCommand { get; private set; }
         public ICommand RemoveCommand { get; private set; }
 
-        public MainViewModel()
+	    public IDatabase Database { get; set; }
+
+        public MainViewModel(IDatabase db)
         {
+	        Database = db;
+
             Contacts = new ObservableCollection<ContactViewModel>();
 
 			// Load the contact cards
@@ -55,9 +61,16 @@ namespace WpfAddressBook.ViewModels
 			ContactViewModel vm = new ContactViewModel(newCard);
 			Contacts.Add(vm);
 			SelectedCard = vm;
-		}
 
-        void OnRemove()
+	        SaveToDb();
+        }
+
+	    private void SaveToDb()
+	    {
+		    Database.Save(Contacts);
+	    }
+
+	    void OnRemove()
         {
             if (SelectedCard != null)
             {

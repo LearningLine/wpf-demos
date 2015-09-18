@@ -96,5 +96,10 @@ RegEx Authoring tool
 http://www.regexr.com/
 
 
+Effective C#
+http://www.amazon.com/Effective-Covers-4-0-Specific-Development-ebook/dp/B003BXRNZI
+
+More Effective C#
+http://www.amazon.com/More-Effective-Specific-Ways-Improve/dp/0321485890/ref=pd_bxgy_14_text_y
 
 

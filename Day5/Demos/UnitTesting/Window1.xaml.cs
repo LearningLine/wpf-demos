@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows;
+using WpfAddressBook.Interfaces;
 using WpfAddressBook.ViewModels;
 
 namespace WpfAddressBook
@@ -12,7 +13,8 @@ namespace WpfAddressBook
     {
         public Window1()
         {
-            DataContext = new MainViewModel();
+	        var database = IoC.Instance.Resolve<IDatabase>();
+	        DataContext = new MainViewModel(database);
             InitializeComponent();
         }
 
