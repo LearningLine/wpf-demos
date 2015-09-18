@@ -71,4 +71,6 @@ http://www.dotnetrocks.com/
 DevOps / Sys Admin focused
 http://www.runasradio.com/
 
+Learn to code 
+http://exercism.io
 

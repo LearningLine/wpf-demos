@@ -160,7 +160,7 @@
 		<Button Content="Focus me"
 				FocusVisualStyle="{x:Null}"
 				Height="50"
-				Width="50"/>
+				Width="50" />
 
         <ListBox ItemsSource="{Binding Employees}"
                  ItemsPanel="{DynamicResource ItemsPanelTemplate1}"
@@ -169,5 +169,8 @@
                  BorderBrush="Red"
                  BorderThickness="2"
                  ItemContainerStyle="{DynamicResource ListBoxItemStyle1}" />
+        <ScrollBar x:Name="scrollBar"
+                   Width="Auto"
+                   Style="{DynamicResource ScrollBarStyle1}" />
     </StackPanel>
 </Window>
