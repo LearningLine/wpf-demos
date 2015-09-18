@@ -1,0 +1,65 @@
+﻿<Window x:Class="ArtCanvas.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Title="Art Canvas" Height="480" Width="600">
+    
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <StackPanel Margin="{DynamicResource Spacing}" Orientation="Horizontal" Button.Click="ChangeBackground">
+                <TextBlock VerticalAlignment="Center" Margin="{DynamicResource Spacing}">Background:</TextBlock>
+                <ToggleButton x:Name="currentBackground" Padding="{DynamicResource Spacing}" Tag="{DynamicResource color1}">
+                    <DynamicResource ResourceKey="shape1" />
+                </ToggleButton>
+                <ToggleButton Padding="{DynamicResource Spacing}" Tag="{DynamicResource color2}">
+                    <DynamicResource ResourceKey="shape2" />
+                </ToggleButton>
+                <ToggleButton Padding="{DynamicResource Spacing}" Tag="{DynamicResource color3}">
+                    <DynamicResource ResourceKey="shape3" />
+                </ToggleButton>
+            </StackPanel>
+
+            <StackPanel Margin="{DynamicResource Spacing}" Orientation="Horizontal" Button.Click="ChangeForeground">
+                <TextBlock VerticalAlignment="Center" Margin="{DynamicResource Spacing}">Foreground:</TextBlock>
+                <ToggleButton Padding="{DynamicResource Spacing}" Tag="{DynamicResource color1}">
+                    <DynamicResource ResourceKey="shape1" />
+                </ToggleButton>
+                <ToggleButton x:Name="currentForeground" Padding="{DynamicResource Spacing}" Tag="{DynamicResource color2}">
+                    <DynamicResource ResourceKey="shape2" />
+                </ToggleButton>
+                <ToggleButton Padding="{DynamicResource Spacing}" Tag="{DynamicResource color3}">
+                    <DynamicResource ResourceKey="shape3" />
+                </ToggleButton>
+            </StackPanel>
+
+            <StackPanel Margin="{DynamicResource Spacing}" Orientation="Horizontal" Button.Click="ChangeShape">
+                <TextBlock VerticalAlignment="Center" Margin="{DynamicResource Spacing}">Shape:</TextBlock>
+                <ToggleButton x:Name="currentShape" Padding="{DynamicResource Spacing}">
+                    <Rectangle Stroke="{DynamicResource blackBrush}" 
+                               StrokeThickness="2" 
+                               Width="{DynamicResource RectSize}" 
+                               Height="{DynamicResource RectSize}" />
+                </ToggleButton>
+                <ToggleButton Padding="{DynamicResource Spacing}">
+                    <Ellipse Stroke="{DynamicResource blackBrush}" 
+                             StrokeThickness="2" 
+                             Width="{DynamicResource RectSize}" 
+                             Height="{DynamicResource RectSize}" />
+                </ToggleButton>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Margin="{DynamicResource Spacing}">Border:</TextBlock>
+                <ComboBox Padding="{DynamicResource Spacing}" SelectedIndex="0" SelectionChanged="ChangeThickness" Margin="0,4" VerticalContentAlignment="Center" >
+                    <Rectangle Margin="1,2" Stroke="{DynamicResource blackBrush}" StrokeThickness="1" Fill="{DynamicResource blackBrush}" Height="4" Width="20" />
+                    <Rectangle Margin="1,2" Stroke="{DynamicResource blackBrush}" StrokeThickness="1" Fill="{DynamicResource blackBrush}" Height="6" Width="20" />
+                    <Rectangle Margin="1,2" Stroke="{DynamicResource blackBrush}" StrokeThickness="1" Fill="{DynamicResource blackBrush}" Height="8" Width="20" />
+                    <Rectangle Margin="1,2" Stroke="{DynamicResource blackBrush}" StrokeThickness="1" Fill="{DynamicResource blackBrush}" Height="10" Width="20" />
+                </ComboBox>
+            </StackPanel>            
+
+        </ToolBar>
+
+        <Canvas x:Name="DrawingSurface" Background="Orange" />
+
+    </DockPanel>
+</Window>

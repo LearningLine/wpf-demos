@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="350"
+        Width="525">
+    <Window.Resources>
+
+        <Style x:Key="HoverButtonStyle"
+               TargetType="Button">
+			<Setter Property="FontSize" Value="25"/>
+			<Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver"
+                                   Value="True" />
+                        <Condition Property="IsPressed"
+                                   Value="True" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="FontSize"
+                            Value="100" />
+                    <!--<Setter Property="FontWeight"
+                            Value="Bold" />-->
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+
+        <Button Content="Hover over me"
+
+                Style="{StaticResource HoverButtonStyle}">
+        </Button>
+		<Button Content="I do nothing"
+				FontSize="35"/>
+
+    </StackPanel>
+</Window>

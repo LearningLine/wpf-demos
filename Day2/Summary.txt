@@ -1,0 +1,86 @@
+DAY 2 Summary:
+
+Framework Architecture:
+Changes to the UI only can happen on the UI Thread.
+If you aren't the UI thread dispatch the changes using the Dispatcher
+  bool CheckAccess
+  VerifyAccess throws if not on the UI thread
+WPF caches property values. If they change you have to let WPF know
+
+Doesn't render non visible items
+Uses DirectX
+Is a retained graphics as opposed to immediate mode (think WinForms and OnPaint)
+
+Logical tree (what you type in XAML)
+Visual tree (what is actually rendered)
+
+VS 2015
+Snoop
+Mole project (likely dead)
+ 
+Input:
+
+new event model RoutedEvent
+Tunneling - Goes from the parent to the child that actually raised the event
+
+uses prefix of Preview
+   
+Bubbling - Goes from the lowest child to the parent
+
+Stop propagation of events set e.handled = true
+
+Hide an element from HitTesting set IsHitTestVisible = false
+
+ICommand
+  Two methods:
+   bool CanExecute(object p)
+   Execute(object p)
+
+
+Resources:
+
+  Solves the sharing problem. Avoid repeated XAML
+
+	StaticResource - If it doesn't exist throws. It's only looked up once.
+	DynamicResource - Doesn't throw if it doesn't exist. Looks up first time and then registers a change handler. Main use case if to support runtime themeing
+
+Styles:
+   Solve setter problem. Extract property setters to a common style and simplfy your xaml
+
+   <Button Style="{StaticResource myStyle" />
+
+Precedence
+   Local
+   Trigger Value
+   Style Setter
+   Base Style Setter
+   Global default (WPF runtime styles)
+
+Explict Style
+   Your element has to set Style=""
+
+Implict Style
+   Remove the x:Key from the style. Your element doesn't have to opt in (no Style="")   
+
+TargetType tells the Style what type of object to apply to 
+
+
+Triggers:
+
+   React to user interaction by apply setters to elements. Something like IsMouseOver="true" then Setter some element property
+
+   PropertyTrigger == <Trigger /> 
+
+AND and OR condtions
+
+AND
+   <MultiTrigger>
+     <MultiTrigger.Conditions>
+        Multiple conditions ANDed together
+
+OR
+
+   <Trigger>
+   
+   <Trigger>
+

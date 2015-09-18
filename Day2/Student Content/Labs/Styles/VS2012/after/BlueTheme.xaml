@@ -1,0 +1,38 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <Style x:Key="BasicSettings">
+    <Setter Property="Control.Margin" Value="5" />
+    <Setter Property="Control.Padding" Value="5" />
+    <Setter Property="Control.Background" Value="Blue" />
+    <Setter Property="Control.Foreground" Value="White" />
+  </Style>
+
+  <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BasicSettings}">
+  </Style>
+
+  <Style TargetType="{x:Type Button}" x:Key="MainButton" BasedOn="{StaticResource BasicSettings}">
+    <Setter Property="Foreground" Value="Yellow" />
+    <Setter Property="Effect">
+      <Setter.Value>
+        <DropShadowEffect Color="Goldenrod" BlurRadius="10" ShadowDepth="0" />
+      </Setter.Value>
+    </Setter>
+  </Style>
+  
+  <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource BasicSettings}">
+    <Setter Property="Foreground" Value="Blue" />
+  </Style>
+
+  <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource BasicSettings}">
+  </Style>
+
+  <Style x:Key="TitleText" BasedOn="{StaticResource BasicSettings}">
+    <Setter Property="TextBlock.Foreground" Value="DarkBlue" />
+    <Setter Property="TextBlock.FontSize" Value="24pt" />
+  </Style>
+
+  <SolidColorBrush x:Key="AppBackground" Color="LightBlue" />
+
+
+</ResourceDictionary>

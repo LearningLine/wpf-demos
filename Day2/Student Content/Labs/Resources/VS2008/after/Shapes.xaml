@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Rectangle x:Key="shape1" x:Shared="false"  Fill="{DynamicResource color1}" RadiusX="{DynamicResource Radius}" RadiusY="{DynamicResource Radius}" 
+                               Width="{DynamicResource RectSize}" Height="{DynamicResource RectSize}" />
+
+    <Rectangle x:Key="shape2" x:Shared="false" Fill="{DynamicResource color2}" RadiusX="{DynamicResource Radius}" RadiusY="{DynamicResource Radius}" 
+                               Width="{DynamicResource RectSize}" Height="{DynamicResource RectSize}" />
+
+    <Rectangle  x:Key="shape3" x:Shared="false" Fill="{DynamicResource color3}" RadiusX="{DynamicResource Radius}" RadiusY="{DynamicResource Radius}" 
+                               Width="{DynamicResource RectSize}" Height="{DynamicResource RectSize}" />
+
+</ResourceDictionary>

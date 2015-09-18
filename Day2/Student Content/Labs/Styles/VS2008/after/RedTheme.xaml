@@ -1,0 +1,55 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <Style x:Key="BasicSettings">
+    <Setter Property="Control.Margin" Value="15" />
+    <Setter Property="Control.Padding" Value="15" />
+  </Style>
+
+  <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BasicSettings}">
+    <Setter Property="Background" Value="Red" />
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+
+  <Style TargetType="{x:Type Button}" x:Key="MainButton">
+    <Setter Property="HorizontalAlignment" Value="Center" />
+    <Setter Property="Background" Value="Red" />
+    <Setter Property="Foreground" Value="Pink" />
+    <Setter Property="Effect">
+      <Setter.Value>
+        <DropShadowEffect Color="White" BlurRadius="10" ShadowDepth="0" />
+      </Setter.Value>   
+    </Setter>
+  </Style>      
+
+  <Style x:Key="AdvancedSettings">
+    <Setter Property="Control.Visibility" Value="Collapsed" />
+  </Style>
+  
+  <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource BasicSettings}">
+    <Setter Property="Background" Value="DarkRed" />
+    <Setter Property="Foreground" Value="Red" />
+  </Style>
+
+  <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource BasicSettings}">
+    <Setter Property="Background" Value="Red" />
+    <Setter Property="Foreground" Value="White" />
+  </Style>
+
+  <Style x:Key="TitleText" BasedOn="{StaticResource BasicSettings}">
+    <Setter Property="TextBlock.Foreground" Value="DarkRed" />
+    <Setter Property="TextBlock.FontSize" Value="16pt" />
+    <Setter Property="TextBlock.RenderTransform">
+      <Setter.Value>
+        <TranslateTransform Y="150" />
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <LinearGradientBrush x:Key="AppBackground" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Offset="0" Color="Crimson" />
+    <GradientStop Offset="1" Color="Pink" />
+  </LinearGradientBrush>
+
+
+</ResourceDictionary>
