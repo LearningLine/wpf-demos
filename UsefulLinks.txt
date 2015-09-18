@@ -74,3 +74,27 @@ http://www.runasradio.com/
 Learn to code 
 http://exercism.io
 
+
+DAY 5:
+
+.NET productivity tools
+
+https://www.jetbrains.com/products.html?fromMenu#technologies
+
+http://www.red-gate.com/products/
+
+Web Proxy / Debugger
+http://www.telerik.com/fiddler
+
+Process Explorer (SysInternals)
+https://technet.microsoft.com/en-us/sysinternals/bb842062
+
+Powershell Pocket Reference
+http://www.amazon.com/Windows-PowerShell-Pocket-Reference-OReilly/dp/1449320961
+
+RegEx Authoring tool
+http://www.regexr.com/
+
+
+
+
