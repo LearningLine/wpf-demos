@@ -46,5 +46,10 @@ namespace WpfAddressBook.ViewModels
         {
             get { return _cardAddress; }
         }
+
+	    public override string ToString()
+	    {
+		    return string.Format("{0} {1} {2}", ContactCard.Name, ContactCard.Email, ContactCard.Id);
+	    }
     }
 }

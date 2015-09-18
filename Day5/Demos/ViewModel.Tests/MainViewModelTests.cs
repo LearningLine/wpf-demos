@@ -1,11 +1,13 @@
 ﻿using System.Linq;
 using ApprovalTests;
+using ApprovalTests.Reporters;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WpfAddressBook.ViewModels;
 
 namespace ViewModel.Tests
 {
 	[TestClass]
+	[UseReporter(typeof(DiffReporter))]
 	public class MainViewModelTests
 	{
 
@@ -47,9 +49,7 @@ namespace ViewModel.Tests
 		public void SelectedCardIsSetToNewlyAddedCard()
 		{
 			vm.AddCommand.Execute(null);
-
-
-			Assert.AreEqual(vm.SelectedCard, vm.Contacts.Last());
+			Approvals.Verify(vm.SelectedCard);
 
 		}
 	}
